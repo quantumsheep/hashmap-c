@@ -50,4 +50,7 @@ hmap_set(HashMap *map, hkey key, hval val);
 int
 hmap_remove(HashMap *map, hkey key);
 
+void
+hmap_loop(HashMap *map, void (*cb)(Hash*, void*), void* args);
+
 #endif

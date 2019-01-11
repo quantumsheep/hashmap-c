@@ -115,3 +115,15 @@ hmap_remove(HashMap *map, hkey key)
 
     return 0;
 }
+
+void
+hmap_loop(HashMap *map, void (*cb)(Hash*, void*), void* args)
+{
+    Hash* row = map->first;
+
+    while (row != NULL)
+    {
+        cb(row, args);
+        row = row->next;
+    }
+}
