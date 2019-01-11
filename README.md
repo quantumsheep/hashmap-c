@@ -69,6 +69,23 @@ Remove a key-value from a map.
 ### Return value
 An error code, if it occurs. This code can be `0` if no error or `HMAP_KEY_NOT_EXISTS` if the key to remove doesn't exists.
 
+### Parameters
+**map**: a HashMap.  
+**key**: the key.  
+**val**: the value.  
+
+## hmap_loop()
+```c
+void
+hmap_loop(HashMap *map, void (*cb)(Hash*, void*), void* args);
+```
+Call a function (`cb`) for each `Hash` in a `HashTable`.
+
+### Parameters
+**map**: a HashMap.  
+**cb**: a pointer to a function that takes a `Hash *` and a `void *`.  
+**args**: the callback's arguments. It will be sent to the second callback's argument.  
+
 
 # Change default types
 Their is 2 constants defined in `hmap.h`:
